@@ -2,5 +2,33 @@
 @import '_mixins';
 
 input[type="range"] {
-  // Add your styles here
+  -webkit-appearance: none;
+  // margin: 18px 0;
+  // width: 100%;
+  &::-webkit-slider-thumb {
+    @include range-thumb()
+  }
+  &::-moz-range-thumb {
+    @include range-thumb();
+  }
+
+  &::-ms-thumb {
+    @include range-thumb();
+  }
+
+  &::-webkit-slider-runnable-track {
+    @include range-track()
+  }
+
+  &::-moz-range-track {
+    @include range-track()
+  }
+
+  &::-ms-track {
+    @include range-track()
+  }
+
+  &:focus{ 
+  outline: none;
+  } 
 }
