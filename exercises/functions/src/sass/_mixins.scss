@@ -1,21 +1,33 @@
+@mixin themify($color, $darkenpct) {
+  background-color: darken($color, $darkenpct);
+  border: darken($color, 20%) 1px solid;
+  &:hover{
+    background-color: lighten(saturate($color, 20%), 10%);
+  }
+}
+
 @mixin theme($primary-color, $rotate: 120deg, $darkenpct: 20%) {
 
   .btn{
 
     &.btn-primary{
-      background: $primary-color;
-      border: darken($primary-color, 20%) 1px solid;
-      &:hover{
-        background-color: lighten(saturate($primary-color, 20%), 10%);
-      }
+      @include themify($primary-color, $darkenpct);
+      background-color: $primary-color;
     }
+
     &.btn-secondary{
       $secondary-color: adjust-hue($primary-color, $rotate);
-      background: darken($secondary-color, $darkenpct);
+      @include themify($secondary-color, $darkenpct);
       border: darken($secondary-color, 20%) 1px solid;
-      &:hover{
-        background-color: lighten(saturate($secondary-color, 20%), 10%);
-      }
+    }
+
+    &.btn-other{
+      $other-color: adjust-hue($primary-color, $rotate + 60);
+      @include themify($other-color, $darkenpct);
+    }
+    &.btn-other{
+      $other-color: adjust-hue($primary-color, $rotate + 60);
+      @include themify($other-color, $darkenpct);
     }
   }
 }
