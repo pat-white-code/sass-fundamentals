@@ -1,6 +1,11 @@
 @mixin themify($color, $darkenpct) {
   background-color: darken($color, $darkenpct);
   border: darken($color, 20%) 1px solid;
+  @if lightness($color) < 60% {
+    color: white;
+  } @else {
+    color: black;
+  }
   &:hover{
     background-color: lighten(saturate($color, 20%), 10%);
   }
