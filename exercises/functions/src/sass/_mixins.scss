@@ -1,3 +1,21 @@
 @mixin theme($primary-color, $rotate: 120deg, $darkenpct: 20%) {
- 
+
+  .btn{
+
+    &.btn-primary{
+      background: $primary-color;
+      border: darken($primary-color, 20%) 1px solid;
+      &:hover{
+        background-color: lighten(saturate($primary-color, 20%), 10%);
+      }
+    }
+    &.btn-secondary{
+      $secondary-color: adjust-hue($primary-color, $rotate);
+      background: darken($secondary-color, $darkenpct);
+      border: darken($secondary-color, 20%) 1px solid;
+      &:hover{
+        background-color: lighten(saturate($secondary-color, 20%), 10%);
+      }
+    }
+  }
 }
