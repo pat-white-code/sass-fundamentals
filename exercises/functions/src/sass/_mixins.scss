@@ -4,9 +4,15 @@
   &:hover{
     background-color: lighten(saturate($color, 20%), 10%);
   }
+  &:disabled {
+    pointer-events: none;
+  }
 }
 
 @mixin theme($primary-color, $rotate: 120deg, $darkenpct: 20%) {
+  $other-color: adjust-hue($primary-color, $rotate);
+  $other-color2: adjust-hue($primary-color, -$rotate);
+  $secondary-color: adjust-hue($primary-color, 180deg);
 
   .btn{
 
@@ -16,18 +22,14 @@
     }
 
     &.btn-secondary{
-      $secondary-color: adjust-hue($primary-color, $rotate);
       @include themify($secondary-color, $darkenpct);
-      border: darken($secondary-color, 20%) 1px solid;
     }
 
     &.btn-other{
-      $other-color: adjust-hue($primary-color, $rotate + 60);
       @include themify($other-color, $darkenpct);
     }
-    &.btn-other{
-      $other-color: adjust-hue($primary-color, $rotate + 60);
-      @include themify($other-color, $darkenpct);
+    &.btn-other2{
+      @include themify($other-color2, $darkenpct);
     }
   }
 }
