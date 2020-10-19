@@ -1,34 +1,89 @@
-@import '_variables';
 @import '_mixins';
+@import '_variables';
 
-input[type="range"] {
+input[type=range] {
   -webkit-appearance: none;
-  // margin: 18px 0;
-  // width: 100%;
+  margin: 18px 0;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+  }
+  @include range-track() {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+  }
+  &::-webkit-slider-runnable-track {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+  }
+  
+  &::-moz-range-track {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+  }
+  
+  &::-ms-track {
+    background: transparent;
+    border-color: transparent;
+    border-width: 16px 0;
+    color: transparent;
+  }
+  
   &::-webkit-slider-thumb {
-    @include range-thumb()
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -14px;
+  }
+  &:focus::-webkit-slider-runnable-track {
+    background: #367ebd;
   }
   &::-moz-range-thumb {
-    @include range-thumb();
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
   }
-
+  
+  &::-ms-fill-lower {
+    background: #2a6495;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  }
+  &::-ms-fill-upper {
+    background: #3071a9;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  }
   &::-ms-thumb {
-    @include range-thumb();
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
   }
-
-  &::-webkit-slider-runnable-track {
-    @include range-track()
+  &:focus::-ms-fill-lower {
+    background: #3071a9;
   }
-
-  &::-moz-range-track {
-    @include range-track()
+  &:focus::-ms-fill-upper {
+    background: #367ebd;
   }
-
-  &::-ms-track {
-    @include range-track()
-  }
-
-  &:focus{ 
-  outline: none;
-  } 
 }
