@@ -15,15 +15,15 @@ input[type=range] {
     cursor: pointer;
   }
   &::-webkit-slider-runnable-track {
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    background: #3071a9;
+    box-shadow: $box-shadow;
+    background: $background-blue;
     border-radius: 1.3px;
     border: 0.2px solid #010101;
   }
   
   &::-moz-range-track {
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    background: #3071a9;
+    box-shadow: $box-shadow;
+    background: $background-blue;
     border-radius: 1.3px;
     border: 0.2px solid #010101;
   }
@@ -34,56 +34,41 @@ input[type=range] {
     border-width: 16px 0;
     color: transparent;
   }
-  
-  &::-webkit-slider-thumb {
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  @include slider-thumb(){
+    box-shadow: $box-shadow;
     border: 1px solid #000000;
     height: 36px;
     width: 16px;
     border-radius: 3px;
     background: #ffffff;
     cursor: pointer;
+  }
+  
+  &::-webkit-slider-thumb {
     -webkit-appearance: none;
     margin-top: -14px;
   }
+
   &:focus::-webkit-slider-runnable-track {
-    background: #367ebd;
-  }
-  &::-moz-range-thumb {
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    border: 1px solid #000000;
-    height: 36px;
-    width: 16px;
-    border-radius: 3px;
-    background: #ffffff;
-    cursor: pointer;
+    background: $fill-lower;
   }
   
   &::-ms-fill-lower {
     background: #2a6495;
     border: 0.2px solid #010101;
     border-radius: 2.6px;
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    box-shadow: $box-shadow;
   }
   &::-ms-fill-upper {
-    background: #3071a9;
+    background: $background-blue;
     border: 0.2px solid #010101;
     border-radius: 2.6px;
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  }
-  &::-ms-thumb {
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    border: 1px solid #000000;
-    height: 36px;
-    width: 16px;
-    border-radius: 3px;
-    background: #ffffff;
-    cursor: pointer;
+    box-shadow: $box-shadow;
   }
   &:focus::-ms-fill-lower {
-    background: #3071a9;
+    background: $background-blue;
   }
   &:focus::-ms-fill-upper {
-    background: #367ebd;
+    background: $fill-lower;
   }
 }
